@@ -8,6 +8,8 @@ password = '123456aA'
 key = {'log':username,'pwd':password,'wp-submit':'Log in',
         'redirect_to':url,'testcokie':'1'}
 res = requests.post(login,data=key)
-print(res.text)
-// chua get dc name
+//print(res.text)
+soup = BeautifulSoup(res.text)
+mydivs = soup.findAll("span",{"class":"display-name"})
+print(mydivs)
 
